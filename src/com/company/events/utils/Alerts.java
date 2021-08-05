@@ -7,7 +7,7 @@ public class Alerts {
         return "¡"+ EventName +" { "+ EventType +" } está a punto de empezar! -> " + Waypoint;
     }
     public static String EventStartClipboardMessage(String EventName, String Waypoint){
-        return "Evento "+ EventName +" -> " + Waypoint;
+        return "Está a punto de empezar "+ EventName +" -> " + Waypoint;
     }
     public static String NextEventStartingMessage(String EventName, Date StartingTime){
         return "Siguiente "+ EventName +" -> " + StartingTime;

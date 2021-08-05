@@ -16,7 +16,6 @@ public class SubsFrame extends JFrame {
     }
 
     private static boolean isToastRunning;
-
     private static SubsFrame instance;
 
     /**
@@ -63,9 +62,11 @@ public class SubsFrame extends JFrame {
      * @see         SubsFrame
      */
     public static void destroy() {
-        setIsToastRunning(false);
-        instance.dispose();
-        instance = null;
+        if(instance != null) {
+            setIsToastRunning(false);
+            instance.dispose();
+            instance = null;
+        }
     }
 
     /**
@@ -76,7 +77,7 @@ public class SubsFrame extends JFrame {
      * @see         SubsFrame
      */
     public static void setOpacity(double opacity){
-        instance.setBackground(new Color(0.3f,0.3f,0.3f,(float)opacity));
+        instance.setBackground(new Color(0.0f,0.0f,0.0f,(float)opacity));
     }
 
     /**
@@ -154,7 +155,7 @@ public class SubsFrame extends JFrame {
         }
         label = new JLabel("");
         label.setFont(new Font("Consolas", Font.PLAIN, 25));
-        label.setForeground(Color.WHITE);
+        label.setForeground(Color.white);
         this.setLayout(new FlowLayout());
         this.add(label);
         this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);

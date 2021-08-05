@@ -1,5 +1,7 @@
 package com.company.events.utils;
 
+import java.util.Timer;
+
 public class Toast {
     public static int LENGTH_SHORT = 5000;
     public static int LENGTH_MEDIUM = 10000;
@@ -67,7 +69,7 @@ public class Toast {
             @Override
             public void run() {
                 try {
-                    SubsFrame.build(JSubsConstants.AUTO_SIZED_FRAME_AUTO_POSITIONED);
+                    SubsFrame.build(JSubsConstants.AUTO_SIZED_FRAME_MANUAL_POSITIONED);
                     SubsFrame.setOpacity(0.6);
                     SubsFrame.setText(text);
                     SubsFrame.showFrame();
@@ -75,7 +77,7 @@ public class Toast {
                     Thread.sleep(length);
                     SubsFrame.destroy();
                 } catch (Exception e) {
-                    System.err.println(e);
+                    System.err.println("Toast: "+e.getMessage());
                 }
             }
         }).start();
@@ -130,7 +132,7 @@ public class Toast {
                 try {
                     SubsFrame.build(JSubsConstants.AUTO_SIZED_FRAME_AUTO_POSITIONED);
                     SubsFrame.setText(text);
-                    SubsFrame.setOpacity(0.6);
+                    SubsFrame.setOpacity(0.3);
                     SubsFrame.setIsToastRunning(true);
                     SubsFrame.showFrame();
                     Thread.sleep(length);
